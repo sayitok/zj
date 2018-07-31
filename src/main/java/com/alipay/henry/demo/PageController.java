@@ -4,13 +4,15 @@
  */
 package com.alipay.henry.demo;
 
+import com.alipay.henry.demo.dao.GxyMapper;
 import com.alipay.henry.demo.model.GxyDO;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * @author Henry
@@ -18,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PageController {
+
+    @Resource
+    private GxyMapper gxyMapper;
 
     /**
      * for home page
@@ -31,8 +36,17 @@ public class PageController {
     }
 
 
-    @RequestMapping(value = "/fillForm", method = RequestMethod.POST)
-    public String handleGxy(@RequestBody GxyDO gxyDO) {
-        return "";
+//    @RequestMapping(value = "/fillForm", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+//            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping
+    public String handleGxy(@RequestParam Map<String, String> body) {
+        gxyMapper.insert(convertToGxyDO(body));
+        return "gxy";
+    }
+
+
+    private GxyDO convertToGxyDO(Map<String, String> body) {
+        GxyDO gxyDO = new GxyDO();
+        return gxyDO;
     }
 }

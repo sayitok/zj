@@ -43,9 +43,13 @@ public class PageController {
 //    @RequestMapping(value = "/fillForm", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
 //            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @PostMapping
-    public String handleGxy(@RequestParam Map<String, String> body) {
-        int ret = gxyMapper.insert(convertToGxyDO(body));
-        return "gxy";
+    public String handleGxy(@RequestParam Map<String, String> body,ModelMap model) {
+        try {
+            gxyMapper.insert(convertToGxyDO(body));
+        } catch (Exception e) {
+            model.addAttribute("result", e.toString());
+        }
+        return "result";
     }
 
 

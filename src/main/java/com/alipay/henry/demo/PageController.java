@@ -45,11 +45,13 @@ public class PageController {
 //            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @PostMapping
     public String handleGxy(@RequestParam Map<String, String> body,Model model) {
+        String msg = "success";
         try {
             gxyMapper.insert(convertToGxyDO(body));
         } catch (Exception e) {
-            model.addAttribute("result", e.toString());
+            msg = e.toString();
         }
+        model.addAttribute("result", msg);
         return "result";
     }
 

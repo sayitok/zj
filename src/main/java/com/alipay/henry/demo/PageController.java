@@ -8,6 +8,7 @@ import com.alipay.henry.demo.dao.GxyMapper;
 import com.alipay.henry.demo.model.GxyDO;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class PageController {
      * @return
      */
     @GetMapping("/test")
-    public String homePage(ModelMap model) {
+    public String homePage(Model model) {
         model.addAttribute("title","title=hello gxy");
         return "gxy";
     }
@@ -43,7 +44,7 @@ public class PageController {
 //    @RequestMapping(value = "/fillForm", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
 //            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @PostMapping
-    public String handleGxy(@RequestParam Map<String, String> body,ModelMap model) {
+    public String handleGxy(@RequestParam Map<String, String> body,Model model) {
         try {
             gxyMapper.insert(convertToGxyDO(body));
         } catch (Exception e) {

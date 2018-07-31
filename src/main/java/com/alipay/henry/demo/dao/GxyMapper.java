@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface GxyMapper {
 
-    @Insert("INSERT INTO gxy_tbl(gmt_create, gmt_modified,name,gender,birthday,ckdDate," +
+    @Insert("INSERT INTO gxy_tbl(id,gmt_create, gmt_modified,name,gender,birthday,ckdDate," +
             "gxy,tnb,gxg,sbp1,dbp1,sbp2,dbp2,sbp3,dbp3,dtxy,avgSsy,avgSzy,avgSsyDay,avgSzyDay," +
             "avgSsyNight,avgSzyNight,stdSsy,stdSzy,ndb,ndb24h,hasBloodN,nczRed,xhs,whiteCellCount," +
             "midCellCount,xxbCount,xj,xhdb,ipth,bloodG,bloodL,ctgs) VALUES(now(),now(),#{name}, #{gender}," +

@@ -14,6 +14,8 @@ import java.util.Date;
 public class GxyDO implements Serializable {
     private static final long serialVersionUID = 73359776089917726L;
 
+    private String id;
+
     private String name;
     /**
      * 0-male
@@ -90,6 +92,24 @@ public class GxyDO implements Serializable {
     private int bloodL;
 
     private int ctgs;
+
+    /**
+     * Getter method for property <tt>id</tt>.
+     *
+     * @return property value of id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Setter method for property <tt>id</tt>.
+     *
+     * @param id value to be assigned to property id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Getter method for property <tt>name</tt>.

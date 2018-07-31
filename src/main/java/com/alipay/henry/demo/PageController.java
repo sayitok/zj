@@ -71,6 +71,7 @@ public class PageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        gxyDO.setId(String.valueOf(System.currentTimeMillis()));
         return gxyDO;
     }
 

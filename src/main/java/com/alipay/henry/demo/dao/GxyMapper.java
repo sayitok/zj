@@ -20,7 +20,7 @@ public interface GxyMapper {
             "avgSsyNight,avgSzyNight,stdSsy,stdSzy,ndb,ndb24h,hasBloodN,nczRed,xhs,whiteCellCount," +
             "midCellCount,xxbCount,xj,xhdb,ipth,bloodG,bloodL,ctgs) VALUES(now(),now(),#{name}, #{gender}," +
             "#{birthday},#{ckdDate},#{gxy},#{tnb},#{gxg},#{sbp1},#{dbp1},#{sbp2},#{dbp2},#{sbp3},#{dbp3}," +
-            "#{dtxy},#{avgSsy},#{avgSzy},#{avgSsyDay},#{avgSzyDay},#{avgSsyNight},#{avgSzyNight},#{stdSsy}," +
+            "#{dtxy},#{avgSsy},#{avgSzy},#{avgSsyDay},#{avgSzyDay},#{avgSsyNight},#{avgSzyNight},#{stdSsy},#{stdSzy}," +
             "#{ndb},#{ndb24h},#{hasBloodN},#{nczRed},#{xhs},#{whiteCellCount},#{midCellCount},#{xxbCount}," +
             "#{xj},#{xhdb},#{ipth},#{bloodG},#{bloodL},#{ctgs})")
     int insert(GxyDO gxyDO);

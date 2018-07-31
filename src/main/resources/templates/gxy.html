@@ -12,22 +12,22 @@
         <tbody>
         <tr>
             <th width="271" scope="row"> 姓名</th>
-            <td width="713"><input type="text" name="textfield" id="textfield"></td>
+            <td width="713"><input type="text" name="name" id="name"></td>
         </tr>
         <tr>
             <th scope="row"> 性别</th>
-            <td><select name="select" id="select">
+            <td><select name="gender" id="gender">
                 <option id="male">男</option>
                 <option id="femail">女</option>
             </select></td>
         </tr>
         <tr>
             <th scope="row">出生日期</th>
-            <td><input type="date" name="date" id="date"></td>
+            <td><input type="date" name="birthday" id="birthday"></td>
         </tr>
         <tr>
             <th scope="row"><p>CKD病史</p></th>
-            <td><input type="date" name="date2" id="date2"></td>
+            <td><input type="date" name="ckdDate" id="ckdDate"></td>
         </tr>
         <tr>
             <th scope="row"> 高血压病史</th>
@@ -46,11 +46,11 @@
             <th scope="row"> 糖尿病病史</th>
             <td><p>
                 <label>
-                    <input type="radio" name="tnbs" value="radio" id="tnbs_0">
+                    <input type="radio" name="tnbs" value="1" id="tnbs_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name="tnbs" value="radio" id="tnbs_1">
+                    <input type="radio" name="tnbs" value="0" id="tnbs_1">
                     No</label>
                 <br>
             </p></td>
@@ -59,178 +59,166 @@
             <th scope="row"> 心脑血管病史</th>
             <td><p>
                 <label>
-                    <input type="radio" name="xnxgbs" value="radio" id="xnxgbs_0">
+                    <input type="radio" name="xnxgbs" value="1" id="xnxgbs_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name="xnxgbs" value="radio" id="xnxgbs_1">
+                    <input type="radio" name="xnxgbs" value="0" id="xnxgbs_1">
                     No</label>
                 <br>
             </p></td>
         </tr>
         <tr>
             <th scope="row">SBP1</th>
-            <td><input type="text" name="textfield6" id="textfield6"></td>
+            <td><input type="text" name="sbp1" id="sbp1"></td>
         </tr>
         <tr>
             <th scope="row">DBP1</th>
-            <td><input type="text" name="textfield7" id="textfield7"></td>
+            <td><input type="text" name="dbp1" id="dbp1"></td>
         </tr>
         <tr>
             <th scope="row">SBP2</th>
-            <td><input type="text" name="textfield8" id="textfield8"></td>
+            <td><input type="text" name="sbp2" id="sbp2"></td>
         </tr>
         <tr>
             <th scope="row">DBP2</th>
-            <td><input type="text" name="textfield9" id="textfield9"></td>
+            <td><input type="text" name="dbp2" id="dbp2"></td>
         </tr>
         <tr>
             <th scope="row"> SBP3</th>
-            <td><input type="text" name="textfield10" id="textfield10"></td>
+            <td><input type="text" name="sbp3" id="sbp3"></td>
         </tr>
         <tr>
             <th scope="row">DBP3</th>
-            <td><input type="text" name="textfield11" id="textfield11"></td>
+            <td><input type="text" name="dbp3" id="dbp3"></td>
         </tr>
         <tr>
             <th scope="row">动态血压</th>
             <td><p>
                 <label>
-                    <input type="radio" name="dtxu" value="radio" id="dtxu_0">
+                    <input type="radio" name="dtxy" value="1" id="dtxu_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name="dtxu" value="radio" id="dtxu_1">
+                    <input type="radio" name="dtxy" value="0" id="dtxu_1">
                     No</label>
                 <br>
             </p></td>
         </tr>
         <tr>
             <th scope="row">动态血压收缩压均值</th>
-            <td><input type="text" name="textfield13" id="textfield13"></td>
+            <td><input type="text" name="avgSsy" id="avgSsy"></td>
         </tr>
         <tr>
             <th scope="row">动态血压舒张压均值</th>
-            <td><input type="text" name="textfield14" id="textfield14"></td>
+            <td><input type="text" name="avgSzy" id="avgSzy"></td>
         </tr>
         <tr>
             <th scope="row">动态血压日间收缩压均值</th>
-            <td><input type="text"></td>
+            <td><input type="text" id="avgSsyDay" name="avgSsyDay"></td>
         </tr>
         <tr>
             <th scope="row">动态血压日间舒张压均值</th>
-            <td><input type="text"></td>
+            <td><input type="text" id="avgSzyDay" name="avgSzyDay"></td>
         </tr>
         <tr>
             <th scope="row">动态血压夜间收缩压均值</th>
-            <td><input type="text"></td>
+            <td><input type="text" id="avgSsyNight" name="avgSsyNight"></td>
         </tr>
         <tr>
             <th width="271" scope="row">动态血压夜间舒张压均值</th>
-            <td width="713"><input type="text" name="textfield" id="textfield"></td>
+            <td width="713"><input type="text" name="avgSzyNight" id="avgSzyNight"></td>
         </tr>
         <tr>
             <th scope="row">动态血压收缩压标准差</th>
-            <td><input type="text" name="textfield2" id="textfield2"></td>
+            <td><input type="text" name="stdSsy" id="stdSsy"></td>
         </tr>
         <tr>
             <th scope="row">动态血压舒张压标准差</th>
-            <td><input type="text" name="textfield3" id="textfield3"></td>
+            <td><input type="text" name="stdSzy" id="stdSzy"></td>
         </tr>
         <tr>
             <th scope="row"><p>* 尿蛋白</p></th>
             <td><p>
                 <label>
-                    <input type="radio" name=" niaodanbai" value="radio" id="niaodanbai_0">
+                    <input type="radio" name="ndb" value="1" id="niaodanbai_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name=" niaodanbai" value="radio" id="niaodanbai_1">
+                    <input type="radio" name="ndb" value="0" id="niaodanbai_1">
                     No</label>
                 <br>
             </p></td>
         </tr>
         <tr>
             <th scope="row">24h尿蛋白定量</th>
-            <td><input type="text" name="textfield4" id="textfield4"></td>
+            <td><input type="text" name="ndb24h" id="ndb24h"></td>
         </tr>
         <tr>
             <th scope="row">血尿</th>
             <td><p>
                 <label>
-                    <input type="radio" name="xueniao" value="radio" id="xueniao_0">
+                    <input type="radio" name="hasBloodN" value="1" id="xueniao_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name="xueniao" value="radio" id="xueniao_1">
+                    <input type="radio" name="hasBloodN" value="0" id="xueniao_1">
                     No</label>
                 <br>
             </p></td>
         </tr>
         <tr>
             <th scope="row">尿沉渣红细胞数</th>
-            <td><input type="text" name="textfield5" id="textfield5"></td>
+            <td><input type="text" name="nczRed" id="nczRed"></td>
         </tr>
         <tr>
             <th scope="row">血常规血红素</th>
-            <td><input type="text" name="textfield6" id="textfield6"></td>
+            <td><input type="text" name="xhs" id="xhs"></td>
         </tr>
         <tr>
             <th scope="row">血常规白细胞数</th>
-            <td><input type="text" name="textfield7" id="textfield7"></td>
+            <td><input type="text" name="whiteCellCount" id="whiteCellCount"></td>
         </tr>
         <tr>
             <th scope="row">血常规中性细胞数</th>
-            <td><input type="text" name="textfield8" id="textfield8"></td>
+            <td><input type="text" name="midCellCount" id="midCellCount"></td>
         </tr>
         <tr>
             <th scope="row">血常规血小板</th>
-            <td><input type="text" name="textfield9" id="textfield9"></td>
+            <td><input type="text" name="xxbCount" id="xxbCount"></td>
         </tr>
         <tr>
             <th scope="row">血肌</th>
-            <td><input type="text" name="textfield10" id="textfield10"></td>
+            <td><input type="text" name="xj" id="xj"></td>
         </tr>
         <tr>
             <th scope="row">血红蛋白</th>
-            <td><input type="text" name="textfield11" id="textfield11"></td>
+            <td><input type="text" name="xhdb" id="xhdb"></td>
         </tr>
         <tr>
             <th scope="row">iPTH</th>
-            <td><input type="text" name="textfield12" id="textfield12"></td>
+            <td><input type="text" name="ipth" id="ipth"></td>
         </tr>
         <tr>
             <th scope="row">血钙</th>
-            <td><input type="text" name="textfield13" id="textfield13"></td>
+            <td><input type="text" name="bloodG" id="bloodG"></td>
         </tr>
         <tr>
             <th scope="row">血磷</th>
-            <td><input type="text" name="textfield14" id="textfield14"></td>
+            <td><input type="text" name="bloodL" id="bloodL"></td>
         </tr>
         <tr>
             <th scope="row">头颅CT脑梗塞</th>
             <td><p>
                 <label>
-                    <input type="radio" name="ctRadio" value="radio" id="ctRadio_0">
+                    <input type="radio" name="ctgs" value="1" id="ctRadio_0">
                     Yes</label>
                 <br>
                 <label>
-                    <input type="radio" name="ctRadio" value="radio" id="ctRadio_1">
+                    <input type="radio" name="ctgs" value="0" id="ctRadio_1">
                     No</label>
                 <br>
             </p></td>
-        </tr>
-        <tr>
-            <th scope="row">&nbsp;</th>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <th scope="row">&nbsp;</th>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <th scope="row">&nbsp;</th>
-            <td>&nbsp;</td>
         </tr>
         </tbody>
     </table>

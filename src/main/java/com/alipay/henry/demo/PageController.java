@@ -12,6 +12,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -40,13 +44,55 @@ public class PageController {
 //            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     @PostMapping
     public String handleGxy(@RequestParam Map<String, String> body) {
-        gxyMapper.insert(convertToGxyDO(body));
+        int ret = gxyMapper.insert(convertToGxyDO(body));
         return "gxy";
     }
 
 
     private GxyDO convertToGxyDO(Map<String, String> body) {
         GxyDO gxyDO = new GxyDO();
+
+        try {
+            Field[] fileds = GxyDO.class.getDeclaredFields();
+            for(Field field:fileds) {
+                String name = field.getName();
+                Object value = parseValue(field.getType(), name, body);
+                if(value==null) {
+                    continue;
+                }
+                field.setAccessible(true);
+                field.set(gxyDO,value);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return gxyDO;
     }
+
+
+    private Object parseValue(Class type, String name, Map<String,String> body) throws ParseException {
+        String obj = body.get(name);
+        if(obj==null||obj.equals("")) {
+            return null;
+        }
+        if("gender".equals(name)) {
+            return "男".equals(obj)?1:0;
+        }
+        if("birthday".equals(name) || "ckdDate".equals(name)) {
+            return parseDate(obj);
+        }
+        if(type == Integer.TYPE) {
+            return Integer.parseInt(obj);
+        }
+        if(type == Double.TYPE) {
+            return Double.parseDouble(obj);
+        }
+        return obj;
+    }
+
+    private Date parseDate(String obj) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.parse(obj);
+    }
+
 }

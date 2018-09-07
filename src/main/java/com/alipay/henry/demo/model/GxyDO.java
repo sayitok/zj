@@ -93,6 +93,10 @@ public class GxyDO implements Serializable {
 
     private int ctgs;
 
+    private String xzcc;
+
+    private String ivsFjg;
+
     /**
      * Getter method for property <tt>id</tt>.
      *
@@ -757,5 +761,41 @@ public class GxyDO implements Serializable {
      */
     public void setCtgs(int ctgs) {
         this.ctgs = ctgs;
+    }
+
+    /**
+     * Getter method for property <tt>xzcc</tt>.
+     *
+     * @return property value of xzcc
+     */
+    public String getXzcc() {
+        return xzcc;
+    }
+
+    /**
+     * Setter method for property <tt>xzcc</tt>.
+     *
+     * @param xzcc value to be assigned to property xzcc
+     */
+    public void setXzcc(String xzcc) {
+        this.xzcc = xzcc;
+    }
+
+    /**
+     * Getter method for property <tt>ivsFjg</tt>.
+     *
+     * @return property value of ivsFjg
+     */
+    public String getIvsFjg() {
+        return ivsFjg;
+    }
+
+    /**
+     * Setter method for property <tt>ivsFjg</tt>.
+     *
+     * @param ivsFjg value to be assigned to property ivsFjg
+     */
+    public void setIvsFjg(String ivsFjg) {
+        this.ivsFjg = ivsFjg;
     }
 }

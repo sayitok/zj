@@ -1,7 +1,7 @@
 <p th:text="${result}" />
 
 <form id="file" name="file" action="/upload" enctype="multipart/form-data" method="post">
-<table width="500" border="0">
+<table width="500" border="1">
     <tbody>
     <tr>
         <th scope="row"> 上传图表：<input name="id" type="hidden" th:value="${id}"><input type="file" name="file"><input type="submit" value="点击上传"></th>

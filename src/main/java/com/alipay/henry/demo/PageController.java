@@ -63,15 +63,23 @@ public class PageController {
 
     @PostMapping("/upload")
     public String  fileUpload2(@RequestParam("id") String id,
-                               @RequestParam MultipartFile file) throws IOException {
-        if(id==null) {
-            id = String.valueOf(System.currentTimeMillis());
-        }
-        String path="/root/ftp/" + id + "_" + file.getOriginalFilename();
+                               @RequestParam MultipartFile file,
+                               Model model) throws IOException {
+        String msg = "success";
 
-        File newFile=new File(path);
-        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
-        file.transferTo(newFile);
+        try {
+            if(id==null) {
+                id = String.valueOf(System.currentTimeMillis());
+            }
+            String path="/root/ftp/" + id + "_" + file.getOriginalFilename();
+
+            File newFile=new File(path);
+            //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+            file.transferTo(newFile);
+        } catch (Exception e) {
+            msg = e.toString();
+        }
+        model.addAttribute("result", msg);
         return "result2";
     }
 

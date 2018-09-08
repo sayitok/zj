@@ -5,7 +5,10 @@
 package com.alipay.henry.demo.dao;
 
 import com.alipay.henry.demo.model.GxyDO;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 
 /**

@@ -6,17 +6,24 @@ package com.alipay.henry.demo;
 
 import com.alipay.henry.demo.dao.GxyMapper;
 import com.alipay.henry.demo.model.GxyDO;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,18 +48,34 @@ public class PageController {
     }
 
 
-//    @RequestMapping(value = "/fillForm", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-//            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    @PostMapping
+    @PostMapping("/fillForm")
     public String handleGxy(@RequestParam Map<String, String> body,Model model) {
         String msg = "success";
+        String id = null;
         try {
-            gxyMapper.insert(convertToGxyDO(body));
+            GxyDO gxyDO = convertToGxyDO(body);
+            gxyMapper.insert(gxyDO);
+            id = gxyDO.getId();
         } catch (Exception e) {
             msg = e.toString();
         }
+        model.addAttribute("id",id);
         model.addAttribute("result", msg);
         return "result";
+    }
+
+    @PostMapping("/upload")
+    public String  fileUpload2(@RequestParam("id") String id,
+                               @RequestParam("file") CommonsMultipartFile file) throws IOException {
+        if(id==null) {
+            id = String.valueOf(System.currentTimeMillis());
+        }
+        String path="/root/ftp/" + id + "_" + file.getOriginalFilename();
+
+        File newFile=new File(path);
+        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+        file.transferTo(newFile);
+        return "result2";
     }
 
 

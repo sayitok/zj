@@ -1,5 +1,11 @@
 <p th:text="${result}" />
 
+<form action="/upload" enctype="multipart/form-data" method="post">
+        上传图表：<input type="text" name="id" type="hidden" value="${id}">
+        <input type="file" name="file"><br/>
+        <input type="submit" value="点击上传">
+     </form>
+
 <div>
     <a href="/test">重新添加</a>
 </div>

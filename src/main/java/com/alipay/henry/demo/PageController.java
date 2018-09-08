@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.annotation.Resource;
@@ -62,7 +63,7 @@ public class PageController {
 
     @PostMapping("/upload")
     public String  fileUpload2(@RequestParam("id") String id,
-                               @RequestParam("file") CommonsMultipartFile file) throws IOException {
+                               @RequestParam MultipartFile file) throws IOException {
         if(id==null) {
             id = String.valueOf(System.currentTimeMillis());
         }

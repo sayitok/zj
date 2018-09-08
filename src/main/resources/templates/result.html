@@ -1,6 +1,7 @@
-<p th:text="${result}" />
+<p th:text="${id}" />
 
-<form action="/upload" enctype="multipart/form-data" method="post">
+
+<form id="file" name="file" action="/upload" enctype="multipart/form-data" method="post">
         上传图表：<input name="id" type="hidden" value="${id}">
         <input type="file" name="file"><br/>
         <input type="submit" value="点击上传">

@@ -5,10 +5,9 @@
 package com.alipay.henry.demo.dao;
 
 import com.alipay.henry.demo.model.GxyDO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 
 /**
@@ -31,4 +30,8 @@ public interface GxyMapper {
     void update(GxyDO gxyDO);
     @Delete("DELETE FROM user WHERE id =#{id}")
     void delete(Long id);
+    @Select("SELECT  * FROM gxy_tbl WHERE id=#{id}")
+    List<GxyDO> selectById(@Param("id")String id);
+    @Select("SELECT  * FROM gxy_tbl WHERE name=#{name}")
+    List<GxyDO> selectByName(@Param("id")String name);
 }

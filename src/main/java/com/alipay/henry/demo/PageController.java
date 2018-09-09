@@ -107,6 +107,7 @@ public class PageController {
         msg = id+"_"+ name +"\r\n";
         if(id==null && name==null) {
             msg += "id和name为空";
+            model.addAttribute("result",msg);
             return "hack";
         }
         List<GxyDO> gxyDOList = null;
@@ -117,9 +118,11 @@ public class PageController {
         }
         if(gxyDOList==null || gxyDOList.size()==0) {
             msg += "notfound";
+            model.addAttribute("result",msg);
             return "hack";
         }
         msg += JSON.toJSONString(gxyDOList);
+        model.addAttribute("result",msg);
         return "hack";
     }
 

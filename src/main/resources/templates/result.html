@@ -1,7 +1,7 @@
 <p th:text="${result}" />
 
 <div>
-    <a th:herf="/download?id=${id}" target="_blank">导出excel</a>
+    <a th:herf="@{'/download?id='+${id}}" target="_blank">导出excel</a>
 </div>
 
 <form id="file" name="file" action="/upload" enctype="multipart/form-data" method="post">

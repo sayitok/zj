@@ -41,7 +41,7 @@ public class PageController {
     @Resource
     private GxyMapper gxyMapper;
 
-    public static final String[] TITLES = {"姓名","性别","出生日期","CKD病史","高血压病史","糖尿病病史","心脑血管病史",
+    public static final String[] TITLES = {"id","姓名","性别","出生日期","CKD病史","高血压病史","糖尿病病史","心脑血管病史",
                 "SBP1","DBP1","SBP2","DBP2","SBP3","DBP3","动态血压","动态血压收缩压均值","动态血压舒张压均值",
                 "动态血压日间收缩压均值","动态血压日间舒张压均值","动态血压夜间收缩压均值","动态血压夜间舒张压均值",
                 "动态血压收缩压标准差","动态血压舒张压标准差","尿蛋白","24h尿蛋白定量","血尿","尿沉渣红细胞数",
@@ -226,50 +226,59 @@ public class PageController {
         }
         String[][] values = new String[gxyDOList.size()][TITLES.length];
         for(int i=0;i<gxyDOList.size();i++) {
+            int j = 0;
             GxyDO gxyDO = gxyDOList.get(i);
-            values[i][0] = gxyDO.getId();
-            values[i][1] = gxyDO.getName();
-            values[i][2] = gxyDO.getGender()==1?"男":"女";
-            values[i][3] = DataUtil.format(gxyDO.getBirthday());
-            values[i][4] = DataUtil.format(gxyDO.getCkdDate());
-            values[i][5] = String.valueOf(gxyDO.getGxy());
-            values[i][6] = String.valueOf(gxyDO.getTnb());
-            values[i][7] = String.valueOf(gxyDO.getXhdb());
-            values[i][8] = gxyDO.getSbp1();
-            values[i][9] = gxyDO.getDbp1();
-            values[i][10] = gxyDO.getSbp2();
-            values[i][11] = gxyDO.getDbp2();
-            values[i][12] = gxyDO.getSbp3();
-            values[i][13] = gxyDO.getDbp3();
-            values[i][14] = String.valueOf(gxyDO.getDtxy());
-            values[i][15] = String.valueOf(gxyDO.getAvgSsy());
-            values[i][16] = String.valueOf(gxyDO.getAvgSzy());
-            values[i][17] = String.valueOf(gxyDO.getAvgSsyDay());
-            values[i][18] = String.valueOf(gxyDO.getAvgSzyDay());
-            values[i][19] = String.valueOf(gxyDO.getAvgSsyNight());
-            values[i][20] = String.valueOf(gxyDO.getAvgSzyNight());
-            values[i][21] = String.valueOf(gxyDO.getStdSsy());
-            values[i][22] = String.valueOf(gxyDO.getStdSzy());
-            values[i][23] = String.valueOf(gxyDO.getNdb());
-            values[i][24] = String.valueOf(gxyDO.getNdb24h());
-            values[i][25] = String.valueOf(gxyDO.getNczRed());
-            values[i][26] = String.valueOf(gxyDO.getXhs());
-            values[i][27] = String.valueOf(gxyDO.getWhiteCellCount());
-            values[i][28] = String.valueOf(gxyDO.getMidCellCount());
-            values[i][29] = String.valueOf(gxyDO.getXxbCount());
-            values[i][30] = String.valueOf(gxyDO.getXj());
-            values[i][31] = String.valueOf(gxyDO.getXhdb());
-            values[i][32] = String.valueOf(gxyDO.getIpth());
-            values[i][33] = String.valueOf(gxyDO.getBloodG());
-            values[i][34] = String.valueOf(gxyDO.getBloodL());
-            values[i][35] = String.valueOf(gxyDO.getCtgs());
-            values[i][36] = String.valueOf(gxyDO.getXzcc());
-            values[i][37] = String.valueOf(gxyDO.getIvsFjg());
+            values[i][j++] = gxyDO.getId();
+            values[i][j++] = gxyDO.getName();
+            values[i][j++] = gxyDO.getGender()==1?"男":"女";
+            values[i][j++] = DataUtil.format(gxyDO.getBirthday());
+            values[i][j++] = DataUtil.format(gxyDO.getCkdDate());
+            values[i][j++] = getRadioValue(gxyDO.getGxy());
+            values[i][j++] = getRadioValue(gxyDO.getTnb());
+            values[i][j++] = getRadioValue(gxyDO.getXhdb());
+            values[i][j++] = gxyDO.getSbp1();
+            values[i][j++] = gxyDO.getDbp1();
+            values[i][j++] = gxyDO.getSbp2();
+            values[i][j++] = gxyDO.getDbp2();
+            values[i][j++] = gxyDO.getSbp3();
+            values[i][j++] = gxyDO.getDbp3();
+            values[i][j++] = getRadioValue(gxyDO.getDtxy());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSsy());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSzy());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSsyDay());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSzyDay());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSsyNight());
+            values[i][j++] = String.valueOf(gxyDO.getAvgSzyNight());
+            values[i][j++] = String.valueOf(gxyDO.getStdSsy());
+            values[i][j++] = String.valueOf(gxyDO.getStdSzy());
+            values[i][j++] = getRadioValue(gxyDO.getNdb());
+            values[i][j++] = String.valueOf(gxyDO.getNdb24h());
+            values[i][j++] = getRadioValue(gxyDO.getHasBloodN());
+            values[i][j++] = String.valueOf(gxyDO.getNczRed());
+            values[i][j++] = String.valueOf(gxyDO.getXhs());
+            values[i][j++] = String.valueOf(gxyDO.getWhiteCellCount());
+            values[i][j++] = String.valueOf(gxyDO.getMidCellCount());
+            values[i][j++] = String.valueOf(gxyDO.getXxbCount());
+            values[i][j++] = String.valueOf(gxyDO.getXj());
+            values[i][j++] = String.valueOf(gxyDO.getXhdb());
+            values[i][j++] = String.valueOf(gxyDO.getIpth());
+            values[i][j++] = String.valueOf(gxyDO.getBloodG());
+            values[i][j++] = String.valueOf(gxyDO.getBloodL());
+            values[i][j++] = getRadioValue(gxyDO.getCtgs());
+            values[i][j++] = String.valueOf(gxyDO.getXzcc());
+            values[i][j++] = String.valueOf(gxyDO.getIvsFjg());
         }
         return values;
     }
 
-
+    /**
+     *
+     * @param value
+     * @return
+     */
+    private String getRadioValue(int value) {
+        return value==1?"Y":"N";
+    }
 
 
     private GxyDO convertToGxyDO(Map<String, String> body) {

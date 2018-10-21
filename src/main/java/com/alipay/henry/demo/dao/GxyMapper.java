@@ -24,7 +24,7 @@ public interface GxyMapper {
             "#{birthday},#{ckdDate},#{gxy},#{tnb},#{gxg},#{sbp1},#{dbp1},#{sbp2},#{dbp2},#{sbp3},#{dbp3}," +
             "#{dtxy},#{avgSsy},#{avgSzy},#{avgSsyDay},#{avgSzyDay},#{avgSsyNight},#{avgSzyNight},#{stdSsy},#{stdSzy}," +
             "#{ndb},#{ndb24h},#{hasBloodN},#{nczRed},#{xhs},#{whiteCellCount},#{midCellCount},#{xxbCount}," +
-            "#{xj},#{xhdb},#{ipth},#{bloodG},#{bloodL},#{ctgs},#{xzcc},#{ivsFjg} #{zfdx},#{zsdx},#{sjghd},#{zshbhd},#{sxfs},#{bmhs})")
+            "#{xj},#{xhdb},#{ipth},#{bloodG},#{bloodL},#{ctgs},#{xzcc},#{ivsFjg}, #{zfdx},#{zsdx},#{sjghd},#{zshbhd},#{sxfs},#{bmhs})")
     int insert(GxyDO gxyDO);
     @Update("UPDATE user SET hobby=#{hobby} WHERE name=#{name}")
     void update(GxyDO gxyDO);

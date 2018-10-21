@@ -46,7 +46,7 @@ public class PageController {
                 "动态血压日间收缩压均值","动态血压日间舒张压均值","动态血压夜间收缩压均值","动态血压夜间舒张压均值",
                 "动态血压收缩压标准差","动态血压舒张压标准差","尿蛋白","24h尿蛋白定量","血尿","尿沉渣红细胞数",
                 "血常规血红素","血常规白细胞数","血常规中性细胞数","血常规血小板","血肌酐","血红蛋白","iPTH","血钙",
-                "血磷","头颅CT脑梗塞","心脏彩超","IVS房间隔"};
+                "血磷","头颅CT脑梗塞","心脏彩超","IVS房间隔","左房大小","左室大小","室间隔厚度","左室后壁厚度","射血分数","瓣膜坏死"};
 
     /**
      * for home page
@@ -267,6 +267,12 @@ public class PageController {
             values[i][j++] = getRadioValue(gxyDO.getCtgs());
             values[i][j++] = String.valueOf(gxyDO.getXzcc());
             values[i][j++] = String.valueOf(gxyDO.getIvsFjg());
+            values[i][j++] = String.valueOf(gxyDO.getZfdx());
+            values[i][j++] = String.valueOf(gxyDO.getZsdx());
+            values[i][j++] = String.valueOf(gxyDO.getSjghd());
+            values[i][j++] = String.valueOf(gxyDO.getZshbhd());
+            values[i][j++] = String.valueOf(gxyDO.getSxfs());
+            values[i][j++] = getRadioValue(gxyDO.getBmhs());
         }
         return values;
     }

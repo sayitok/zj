@@ -97,6 +97,128 @@ public class GxyDO implements Serializable {
 
     private String ivsFjg;
 
+    private String zfdx;
+
+    private String zsdx;
+
+    private String sjghd;
+
+    private String zshbhd;
+
+
+    private String sxfs;
+
+    private int bmhs;
+
+
+    /**
+     * Getter method for property <tt>zfdx</tt>.
+     *
+     * @return property value of zfdx
+     */
+    public String getZfdx() {
+        return zfdx;
+    }
+
+    /**
+     * Setter method for property <tt>zfdx</tt>.
+     *
+     * @param zfdx value to be assigned to property zfdx
+     */
+    public void setZfdx(String zfdx) {
+        this.zfdx = zfdx;
+    }
+
+    /**
+     * Getter method for property <tt>zsdx</tt>.
+     *
+     * @return property value of zsdx
+     */
+    public String getZsdx() {
+        return zsdx;
+    }
+
+    /**
+     * Setter method for property <tt>zsdx</tt>.
+     *
+     * @param zsdx value to be assigned to property zsdx
+     */
+    public void setZsdx(String zsdx) {
+        this.zsdx = zsdx;
+    }
+
+    /**
+     * Getter method for property <tt>sjghd</tt>.
+     *
+     * @return property value of sjghd
+     */
+    public String getSjghd() {
+        return sjghd;
+    }
+
+    /**
+     * Setter method for property <tt>sjghd</tt>.
+     *
+     * @param sjghd value to be assigned to property sjghd
+     */
+    public void setSjghd(String sjghd) {
+        this.sjghd = sjghd;
+    }
+
+    /**
+     * Getter method for property <tt>zshbhd</tt>.
+     *
+     * @return property value of zshbhd
+     */
+    public String getZshbhd() {
+        return zshbhd;
+    }
+
+    /**
+     * Setter method for property <tt>zshbhd</tt>.
+     *
+     * @param zshbhd value to be assigned to property zshbhd
+     */
+    public void setZshbhd(String zshbhd) {
+        this.zshbhd = zshbhd;
+    }
+
+    /**
+     * Getter method for property <tt>sxfs</tt>.
+     *
+     * @return property value of sxfs
+     */
+    public String getSxfs() {
+        return sxfs;
+    }
+
+    /**
+     * Setter method for property <tt>sxfs</tt>.
+     *
+     * @param sxfs value to be assigned to property sxfs
+     */
+    public void setSxfs(String sxfs) {
+        this.sxfs = sxfs;
+    }
+
+    /**
+     * Getter method for property <tt>bmhs</tt>.
+     *
+     * @return property value of bmhs
+     */
+    public int getBmhs() {
+        return bmhs;
+    }
+
+    /**
+     * Setter method for property <tt>bmhs</tt>.
+     *
+     * @param bmhs value to be assigned to property bmhs
+     */
+    public void setBmhs(int bmhs) {
+        this.bmhs = bmhs;
+    }
+
     /**
      * Getter method for property <tt>id</tt>.
      *

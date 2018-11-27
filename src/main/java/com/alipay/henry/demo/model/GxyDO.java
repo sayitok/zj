@@ -16,6 +16,8 @@ public class GxyDO implements Serializable {
 
     private String id;
 
+    private String yjzx;
+
     private String name;
     /**
      * 0-male
@@ -110,6 +112,23 @@ public class GxyDO implements Serializable {
 
     private int bmhs;
 
+    /**
+     * Getter method for property <tt>yjzx</tt>.
+     *
+     * @return property value of yjzx
+     */
+    public String getYjzx() {
+        return yjzx;
+    }
+
+    /**
+     * Setter method for property <tt>yjzx</tt>.
+     *
+     * @param yjzx value to be assigned to property yjzx
+     */
+    public void setYjzx(String yjzx) {
+        this.yjzx = yjzx;
+    }
 
     /**
      * Getter method for property <tt>zfdx</tt>.

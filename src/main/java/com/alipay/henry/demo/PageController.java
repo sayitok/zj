@@ -229,6 +229,7 @@ public class PageController {
             int j = 0;
             GxyDO gxyDO = gxyDOList.get(i);
             values[i][j++] = gxyDO.getId();
+            values[i][j++] = gxyDO.getYjzx();
             values[i][j++] = gxyDO.getName();
             values[i][j++] = gxyDO.getGender()==1?"男":"女";
             values[i][j++] = DataUtil.format(gxyDO.getBirthday());

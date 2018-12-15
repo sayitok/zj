@@ -127,6 +127,78 @@ public class PageController {
     }
 
 
+
+    /**
+     * 导出excel
+     * @param request
+     * @param response
+     * @param model
+     * @return
+     */
+    @RequestMapping(value="/downloadAll",produces = {"application/vnd.ms-excel;charset=UTF-8"})
+    public String downloadAll(HttpServletRequest request, HttpServletResponse response, Model model) {
+        String msg = null;
+        try {
+            String id = request.getParameter("id");
+
+            if(id==null) {
+                return "notfound";
+            }
+            List<GxyDO> gxyDOList = null;
+            if(id!=null) {
+                gxyDOList = gxyMapper.selectByYjzx(id);
+            }
+            if(gxyDOList==null || gxyDOList.size()==0) {
+                return "notfound";
+            }
+            String name = "研究中心_"+id;
+            HSSFWorkbook hssfWorkbook = exportExcel(id, name, gxyDOList);
+            if(hssfWorkbook==null) {
+                return "notfound";
+            }
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            try {
+                hssfWorkbook.write(os);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String fileName = name+"_"+id;
+            byte[] content = os.toByteArray();
+            InputStream is = new ByteArrayInputStream(content);
+            // 设置response参数，可以打开下载页面
+            response.reset();
+            response.setContentType("application/vnd.ms-excel;charset=utf-8");
+            response.setHeader("Content-Disposition", "attachment;filename="+ new String((fileName + ".xls").getBytes(), "iso-8859-1"));
+            ServletOutputStream out = response.getOutputStream();
+            BufferedInputStream bis = null;
+            BufferedOutputStream bos = null;
+            try {
+                bis = new BufferedInputStream(is);
+                bos = new BufferedOutputStream(out);
+                byte[] buff = new byte[2048];
+                int bytesRead;
+                // Simple read/write loop.
+                while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+                    bos.write(buff, 0, bytesRead);
+                }
+            } catch (final IOException e) {
+                throw e;
+            } finally {
+                if (bis != null)
+                    bis.close();
+                if (bos != null)
+                    bos.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            msg = e.toString();
+        }
+        model.addAttribute("result", msg);
+
+        return msg==null?null:"error";
+    }
+
+
     /**
      * 导出excel
      * @param request

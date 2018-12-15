@@ -3,6 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="application/json;charset=utf-8" />
     <title>高血压项目</title>
+    <script type="text/javascript">
+        function getSelectYjzx() {
+            var v = document.all.yjzx.value;
+            window.open('/downloadAll?id='+v);
+        }
+    </script>
 </head>
 
 <body>
@@ -13,7 +19,7 @@
         <tr>
             <th width="271" scope="row"> 研究中心</th>
             <td width="713">
-                <select required="required" name="yjzx">
+                <select required="required" name="yjzx" id="yjzx">
                     <option value ="1">1</option>
                     <option value ="2">2</option>
                     <option value="3">3</option>
@@ -25,6 +31,7 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select>
+                <button type="button" onclick="getSelectYjzx()">导出所有</button>
             </td>
         </tr>
         <tr>

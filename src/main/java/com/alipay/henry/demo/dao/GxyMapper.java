@@ -34,4 +34,6 @@ public interface GxyMapper {
     List<GxyDO> selectById(@Param("id")String id);
     @Select("SELECT  * FROM gxy_tbl WHERE name=#{name}")
     List<GxyDO> selectByName(@Param("id")String name);
+    @Select("SELECT  * FROM gxy_tbl WHERE yjzx=#{yjzx}")
+    List<GxyDO> selectByYjzx(@Param("yjzx")String yjzx);
 }

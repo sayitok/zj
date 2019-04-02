@@ -28,8 +28,12 @@ public class GxyDO implements Serializable {
 
     private Date birthday;
 
+    private String birthdayStr;
+
 
     private Date ckdDate;
+
+    private String ckdDateStr;
 
     private int gxy;
 
@@ -938,5 +942,41 @@ public class GxyDO implements Serializable {
      */
     public void setIvsFjg(String ivsFjg) {
         this.ivsFjg = ivsFjg;
+    }
+
+    /**
+     * Getter method for property <tt>birthdayStr</tt>.
+     *
+     * @return property value of birthdayStr
+     */
+    public String getBirthdayStr() {
+        return birthdayStr;
+    }
+
+    /**
+     * Setter method for property <tt>birthdayStr</tt>.
+     *
+     * @param birthdayStr value to be assigned to property birthdayStr
+     */
+    public void setBirthdayStr(String birthdayStr) {
+        this.birthdayStr = birthdayStr;
+    }
+
+    /**
+     * Getter method for property <tt>ckdDateStr</tt>.
+     *
+     * @return property value of ckdDateStr
+     */
+    public String getCkdDateStr() {
+        return ckdDateStr;
+    }
+
+    /**
+     * Setter method for property <tt>ckdDateStr</tt>.
+     *
+     * @param ckdDateStr value to be assigned to property ckdDateStr
+     */
+    public void setCkdDateStr(String ckdDateStr) {
+        this.ckdDateStr = ckdDateStr;
     }
 }

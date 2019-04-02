@@ -304,8 +304,8 @@ public class PageController {
             values[i][j++] = gxyDO.getYjzx();
             values[i][j++] = gxyDO.getName();
             values[i][j++] = gxyDO.getGender()==1?"男":"女";
-            values[i][j++] = DataUtil.format(gxyDO.getBirthday());
-            values[i][j++] = DataUtil.format(gxyDO.getCkdDate());
+            values[i][j++] = gxyDO.getBirthdayStr()==null?DataUtil.format(gxyDO.getBirthday()):gxyDO.getBirthdayStr();
+            values[i][j++] = gxyDO.getCkdDateStr()==null?DataUtil.format(gxyDO.getCkdDate()):gxyDO.getCkdDateStr();
             values[i][j++] = getRadioValue(gxyDO.getGxy());
             values[i][j++] = getRadioValue(gxyDO.getTnb());
             values[i][j++] = getRadioValue(gxyDO.getXhdb());
@@ -378,6 +378,8 @@ public class PageController {
             e.printStackTrace();
         }
         gxyDO.setId(String.valueOf(System.currentTimeMillis()));
+        gxyDO.setBirthdayStr(body.get("birthday"));
+        gxyDO.setCkdDateStr(body.get("ckdDate"));
         return gxyDO;
     }
 

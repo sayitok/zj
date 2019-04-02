@@ -17,14 +17,14 @@ import java.util.List;
 @Mapper
 public interface GxyMapper {
 
-    @Insert("INSERT INTO gxy_tbl(id,gmt_create, gmt_modified,yjzx, name,gender,birthday,ckdDate," +
+    @Insert("INSERT INTO gxy_tbl(id,gmt_create, gmt_modified,yjzx, name,gender" +
             "gxy,tnb,gxg,sbp1,dbp1,sbp2,dbp2,sbp3,dbp3,dtxy,avgSsy,avgSzy,avgSsyDay,avgSzyDay," +
             "avgSsyNight,avgSzyNight,stdSsy,stdSzy,ndb,ndb24h,hasBloodN,nczRed,xhs,whiteCellCount," +
-            "midCellCount,xxbCount,xj,xhdb,ipth,bloodG,bloodL,ctgs,xzcc, ivsFjg,zfdx,zsdx,sjghd,zshbhd,sxfs,bmhs) VALUES(#{id},now(),now(),#{yjzx},#{name}, #{gender}," +
-            "#{birthday},#{ckdDate},#{gxy},#{tnb},#{gxg},#{sbp1},#{dbp1},#{sbp2},#{dbp2},#{sbp3},#{dbp3}," +
+            "midCellCount,xxbCount,xj,xhdb,ipth,bloodG,bloodL,ctgs,xzcc, ivsFjg,zfdx,zsdx,sjghd,zshbhd,sxfs,bmhs,birthdaystr,ckdDatestr) VALUES(#{id},now(),now(),#{yjzx},#{name}, #{gender}," +
+            "#{gxy},#{tnb},#{gxg},#{sbp1},#{dbp1},#{sbp2},#{dbp2},#{sbp3},#{dbp3}," +
             "#{dtxy},#{avgSsy},#{avgSzy},#{avgSsyDay},#{avgSzyDay},#{avgSsyNight},#{avgSzyNight},#{stdSsy},#{stdSzy}," +
             "#{ndb},#{ndb24h},#{hasBloodN},#{nczRed},#{xhs},#{whiteCellCount},#{midCellCount},#{xxbCount}," +
-            "#{xj},#{xhdb},#{ipth},#{bloodG},#{bloodL},#{ctgs},#{xzcc},#{ivsFjg}, #{zfdx},#{zsdx},#{sjghd},#{zshbhd},#{sxfs},#{bmhs})")
+            "#{xj},#{xhdb},#{ipth},#{bloodG},#{bloodL},#{ctgs},#{xzcc},#{ivsFjg}, #{zfdx},#{zsdx},#{sjghd},#{zshbhd},#{sxfs},#{bmhs},#{birthdayStr},#{ckdDateStr})")
     int insert(GxyDO gxyDO);
     @Update("UPDATE user SET hobby=#{hobby} WHERE name=#{name}")
     void update(GxyDO gxyDO);
